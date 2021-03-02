@@ -33,7 +33,7 @@ mxv_omp_mpi:	mxv_omp_mpi.c mat.c
 	mpicc -fopenmp -O3 -o mxv_omp_mpi mxv_omp_mpi.c mat.c
 
 test_mmult:	test_mmult.c mmult.c mat.c
-	gcc test_mmult.c mmult.c mat.c -lm -o test_mmult
+	gcc test_mmult.c mmult_simd.c mat.c -lm -o test_mmult
 
 clean:
 	rm -f *.o
