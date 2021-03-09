@@ -17,6 +17,9 @@ mat.o:	mat.c
 mmult.o:	mmult.c
 	gcc -c mmult.c
 
+mmult_simd.o: mmult_simd.c
+	gcc -c -O3 mmult_simd.c
+
 mmult_omp.o:	mmult_omp.c
 	gcc -c -O3 -fopenmp mmult_omp.c
 
