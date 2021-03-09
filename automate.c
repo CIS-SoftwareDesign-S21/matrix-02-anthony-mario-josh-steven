@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     {
         int n = atoi(argv[1]);
         int num_func = atoi(argv[2]);
-        printf("check: %d, num_func: %d",n,num_func);
+        // printf("check: %d, num_func: %d",n,num_func);
         dataGen(n,fp,num_func);
     }
     // if (argc > 1){
@@ -53,6 +53,7 @@ void dataGen(int n, FILE *filename, int num_func)
         b = gen_matrix(n, n);
         c1 = malloc(sizeof(double) * n * n);
         c2 = malloc(sizeof(double) * n * n);
+        printf("Calculating for size: %d\n",n);
         clock_gettime(CLOCK_REALTIME, &start);
         // mmult(c1, a, n, n, b, n, n);
         (*matrix_func[num_func])(c1,a,n,n,b,n,n);
