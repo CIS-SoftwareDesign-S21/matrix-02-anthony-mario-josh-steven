@@ -21,7 +21,9 @@
  * @return 0 if the matrix multiplication is successful.
  */
 
-int mmult_simd(double *c,double *a,double *b, int n)
+int mmult_simd(double *c,
+          double *a, int aRows, int aCols,
+          double *b, int bRows, int bCols)
 {
 
     // for(int i = 0; i < aRows; ++i) {
@@ -32,13 +34,13 @@ int mmult_simd(double *c,double *a,double *b, int n)
     //         }
     //     }
     // }
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < aRows; ++i)
     {
-        for (int j = 0; j < n; ++j)
-            c[i * n + j] = 0;
-        for (int k = 0; k < n; ++k)
-            for (int l = 0; l < n; l++)
-                c[i * n + l] += a[i * n + k] * b[k * n + l];
+        for (int j = 0; j < bCols; ++j)
+            c[i * bCols + j] = 0;
+        for (int k = 0; k < aCols; ++k)
+            for (int l = 0; l < bCols; l++)
+                c[i * bCols + l] += a[i * aCols + k] * b[k * bCols + l];
     }
 
     return 0;
