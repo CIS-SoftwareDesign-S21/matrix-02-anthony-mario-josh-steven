@@ -10,7 +10,7 @@ int test_unoptimized(double *a, int arows, int acols,
                      double *c_actual) {
     double *c_calc = malloc(MAT_SIZE * MAT_SIZE * sizeof(double));
 
-    mmult_simd(c_calc, a, b, MAT_SIZE);
+    mmult_simd(c_calc, a, MAT_SIZE, MAT_SIZE, b, MAT_SIZE, MAT_SIZE);
 
     int are_same = compare_matrices(c_actual, c_calc, MAT_SIZE, MAT_SIZE);
 
