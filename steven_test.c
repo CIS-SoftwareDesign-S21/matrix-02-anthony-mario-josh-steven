@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     // }
 
     int i = 3;
-    // double *a = read_matrix_from_file("threebyfour.txt");
+    double *a = read_matrix_from_file("fourbythree.txt");
     // matrix_list[i] = a;
     // i++;
     // double *b = read_matrix_from_file("fourbythree.txt");
@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
     // matrix_list[i] = c_actual;
     // i++;
 
-    read_matrices_from_file("threebyfour.txt",matrix_list);
+    // read_matrices_from_file("threebyfour.txt",matrix_list);
 
-    for (int j = 0; j < i; j++){
-        print_matrix(matrix_list[j],3,3);
-    }
+    // for (int j = 0; j < i; j++){
+    //     print_matrix(matrix_list[j],3,3);
+    // }
     // double *a = read_matrix_from_file("a.txt");
     // double *b = read_matrix_from_file("b.txt");
     // double *c_actual = read_matrix_from_file("c.txt");
@@ -47,27 +47,27 @@ int main(int argc, char *argv[])
     //     exit(1);
     // }
 
-    puts("All tests pass.");
+    // puts("All tests pass.");
 
     // free(a);
     // free(b);
     // free(c_actual);
 }
 
-int test_unoptimized(double *a, int arows, int acols,
-                     double *b, int brows, int bcols,
-                     double *c_actual)
-{
-    double *c_calc = malloc(arows * bcols * sizeof(double));
+// int test_unoptimized(double *a, int arows, int acols,
+//                      double *b, int brows, int bcols,
+//                      double *c_actual)
+// {
+//     double *c_calc = malloc(arows * bcols * sizeof(double));
 
-    mmult_simd(c_calc, a, arows, acols, b, brows, bcols);
+//     mmult_simd(c_calc, a, arows, acols, b, brows, bcols);
 
-    int are_same = compare_matrices(c_actual, c_calc, arows, bcols);
+//     int are_same = compare_matrices(c_actual, c_calc, arows, bcols);
 
-    free(c_calc);
+//     free(c_calc);
 
-    return are_same;
-}
+//     return are_same;
+// }
 
 void print_matrices(double* matrices[]){
 
