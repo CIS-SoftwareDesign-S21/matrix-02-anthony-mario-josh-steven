@@ -4,7 +4,7 @@
  */
 
 #include <stdio.h>
-#include <time.h>
+
 #include <sys/times.h>
 #include <stdlib.h>
 

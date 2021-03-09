@@ -72,3 +72,7 @@ int test_unoptimized(double *a, int arows, int acols,
 void print_matrices(double* matrices[]){
 
 }
+
+void matrix_gen(const char *path){
+    srand(time(NULL));
+}
