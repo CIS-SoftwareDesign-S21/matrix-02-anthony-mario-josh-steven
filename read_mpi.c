@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
         // printf("The number of rows is: %d, cols: %d, total: %d\n", nrows, ncols, ntotal);
         // print_matrix(aa,5,5);
         // print_matrix(b,5,5);
-        // aa = (double*)malloc(sizeof(double) * nrows * ncols);
-        // b = (double*)malloc(sizeof(double) * ntotal);
+        aa = (double*)malloc(sizeof(double) * ntotal);
+        b = (double*)malloc(sizeof(double) * ntotal);
         // c = (double *)malloc(sizeof(double) * ntotal);
         buffer = (double *)malloc(sizeof(double) * ncols);
         ans = (double *)malloc(sizeof(double) * ncols);
@@ -53,8 +53,8 @@ int main(int argc, char *argv[])
         {
             aa = read_matrix_from_file(argv[1]);
             b = read_matrix_from_file(argv[2]);
-            print_matrix(b,nrows,ncols);
-            return 0;
+            // print_matrix(b,nrows,ncols);
+            // return 0;
             // Master Code goes here
             // aa = gen_matrix(nrows, ncols);
             // b = gen_matrix(nrows, ncols);
@@ -104,8 +104,8 @@ int main(int argc, char *argv[])
         }
         else
         {
-            printf("At Slave");
-            return 0;
+            // printf("At Slave");
+            // return 0;
             // Slave Code goes here
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
             if (myid <= nrows)
