@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     {
         aa = read_matrix_from_file(argv[1]);
         b = read_matrix_from_file(argv[2]);
-        nrows = grab_size(aa);
+        nrows = grab_size(argv[1]);
         ncols = nrows;
         ntotal = nrows * ncols;
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
