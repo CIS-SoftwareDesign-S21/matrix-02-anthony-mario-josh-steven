@@ -14,7 +14,7 @@
 
 int steven_mpi2(double *c,
           double *a, int aRows, int aCols,
-          double *b, int bRows, int bCols)
+          double *b, int bRows, int bCols, int argc, char*argv[])
 {
     int ncols, ntotal;
     // double *aa, *b, *c;
@@ -34,7 +34,7 @@ int steven_mpi2(double *c,
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
-    if (nrows)
+    if (aRows)
     {
         ncols = aRows;
         ntotal = nrows * ncols;
@@ -47,8 +47,8 @@ int steven_mpi2(double *c,
         if (myid == master)
         {
             // Master Code goes here
-            aa = gen_matrix(nrows, ncols);
-            b = gen_matrix(nrows, ncols);
+            // aa = gen_matrix(nrows, ncols);
+            // b = gen_matrix(nrows, ncols);
             // starttime = MPI_Wtime();
             numsent = 0;
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
@@ -56,7 +56,7 @@ int steven_mpi2(double *c,
             {
                 for (j = 0; j < ncols; j++)
                 {
-                    buffer[j] = aa[i * ncols + j];
+                    buffer[j] = a[i * ncols + j];
                 }
                 MPI_Send(buffer, ncols, MPI_DOUBLE, i + 1, i + 1, MPI_COMM_WORLD);
                 numsent++;
@@ -75,7 +75,7 @@ int steven_mpi2(double *c,
                 {
                     for (j = 0; j < ncols; j++)
                     {
-                        buffer[j] = aa[numsent * ncols + j];
+                        buffer[j] = a[numsent * ncols + j];
                     }
                     MPI_Send(buffer, ncols, MPI_DOUBLE, sender, numsent + 1,
                              MPI_COMM_WORLD);
