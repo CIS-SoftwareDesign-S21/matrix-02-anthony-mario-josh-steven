@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         ncols = nrows;
         ntotal = nrows * ncols;
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
-        // b = (double*)malloc(sizeof(double) * ncols);
+        b = (double*)malloc(sizeof(double) * ntotal);
         c = (double *)malloc(sizeof(double) * ntotal);
         buffer = (double *)malloc(sizeof(double) * ncols);
         ans = (double *)malloc(sizeof(double) * ncols);
