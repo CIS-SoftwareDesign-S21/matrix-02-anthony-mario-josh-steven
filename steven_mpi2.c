@@ -12,10 +12,12 @@
 #include "mat.h"
 #define min(x, y) ((x) < (y) ? (x) : (y))
 
-int main(int argc, char *argv[])
+int steven_mpi2(double *c,
+          double *a, int aRows, int aCols,
+          double *b, int bRows, int bCols)
 {
-    int nrows, ncols, ntotal;
-    double *aa, *b, *c;
+    int ncols, ntotal;
+    // double *aa, *b, *c;
     double *buffer;
     double *ans;
     double *times;
@@ -32,14 +34,13 @@ int main(int argc, char *argv[])
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
-    if (argc > 1)
+    if (nrows)
     {
-        nrows = atoi(argv[1]);
-        ncols = nrows;
+        ncols = aRows;
         ntotal = nrows * ncols;
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
-        b = (double*)malloc(sizeof(double) * ntotal);
-        c = (double *)malloc(sizeof(double) * ntotal);
+        // b = (double*)malloc(sizeof(double) * ntotal);
+        // c = (double *)malloc(sizeof(double) * ntotal);
         buffer = (double *)malloc(sizeof(double) * ncols);
         ans = (double *)malloc(sizeof(double) * ncols);
         master = 0;
@@ -48,7 +49,7 @@ int main(int argc, char *argv[])
             // Master Code goes here
             aa = gen_matrix(nrows, ncols);
             b = gen_matrix(nrows, ncols);
-            starttime = MPI_Wtime();
+            // starttime = MPI_Wtime();
             numsent = 0;
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
             for (i = 0; i < min(numprocs - 1, nrows); i++)
@@ -85,8 +86,8 @@ int main(int argc, char *argv[])
                     MPI_Send(MPI_BOTTOM, 0, MPI_DOUBLE, sender, 0, MPI_COMM_WORLD);
                 }
             }
-            endtime = MPI_Wtime();
-            printf("%f\n", (endtime - starttime));
+            // endtime = MPI_Wtime();
+            // printf("%f\n", (endtime - starttime));
             // for(int t = 0; t < ntotal; t++){
             //     printf("The %dth entry is %lf",t,c[t]);
             // }
