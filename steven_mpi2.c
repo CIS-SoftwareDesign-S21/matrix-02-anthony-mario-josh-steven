@@ -37,7 +37,7 @@ int steven_mpi2(double *c,
     if (aRows)
     {
         ncols = aRows;
-        ntotal = nrows * ncols;
+        ntotal = aRows * ncols;
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
         // b = (double*)malloc(sizeof(double) * ntotal);
         // c = (double *)malloc(sizeof(double) * ntotal);
