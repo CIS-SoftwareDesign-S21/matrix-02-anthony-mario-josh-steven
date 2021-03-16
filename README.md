@@ -46,7 +46,10 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 - Began implementation of task 5 based on given mxv_omp_mpi.c file
 - Contributed to full project life cycle questions included in this README
 ### Mario 
-- 
+- Formatted README.md
+- Answered a portion of the questions on README.md
+- Working on Matrix multiplication in C on Wolfgang cluster with both OpenMP and MPI
+- Assisted in general
 ### Steven
 - 
 ### Josh
