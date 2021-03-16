@@ -43,25 +43,39 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 
 
 ## Teamwork
-List all team members in the README.md explain the contribution of each person. 
+- List all team members in the README.md explain the contribution of each person.
+### Anthony
+- Conducted research on SIMD, OMP, and MPI and the differences between them
+- Utilized mmult_omp_timing.c to test runtimes of mmult and mmult_omp and analyze the differences in their speeds for various sized n x n matricies
+- Began implementation of task 5 based on given mxv_omp_mpi.c file
+- Contributed to full project life cycle questions included in this README
+
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
 
+We did lock the master branch as explained in GitHW2 Lab 2 - Git. We each created seperate branches for our individual work and were able to review the changes in each other's branches before they were merged to master.
+
 
 ## Full project life cycle
-Have you used a project board? How did you used it, or if you did not use a project board how did you plan and manage your project and team work?
+- Have you used a project board? How did you used it, or if you did not use a project board how did you plan and manage your project and team work?
 
-Is the usual cycle: write code, compile code,  run code, test code was the same when doing remote development on Wolfgand cluster. Did you need to adapt your way of working or use different tools?
+We chose to utilize the GitHub project board instead of Trello to keep all of our materials in one place for more efficient management of tasks. Each team member created their own tasks to be completed that were mainly broken up components of the main tasks that we were given. This allowed us to work individually while also ensuring that each task was completed in full.
 
-What kind of testing did you plan to use for this project? Did you consider measuring speed, memory consumption and validity of results for matrix multiplication. Did you consider that the code provided by the professor could have flaws?
+- Is the usual cycle: write code, compile code,  run code, test code was the same when doing remote development on Wolfgand cluster. Did you need to adapt your way of working or use different tools?
+
+We were able to implement the usual cycle using the Wolfgand cluster with the added step of pulling our repository to chinook after updates were made. Doing development remotely did not interfere with our process as we were able to review each other's changes using GitHub before moving on to testing on the cluster. Extra tools were not necessary.
+
+- What kind of testing did you plan to use for this project? Did you consider measuring speed, memory consumption and validity of results for matrix multiplication. Did you consider that the code provided by the professor could have flaws?
 
 Testing was mostly using the compare matrix methods in first check that our matrices were multiplying correctly. This was done using the read matrix from file method and a third file, I would use a small matrix which I had the answer to and compared if the values matched. 
 I did consider that the code had flaws which led me to questioning the template provided by the mxv_omp_mpi file since it seemed as if certain things were not allocated correctly. 
 
-Did you need to write code or use tools to generate random matrix of specific sizes? Did you put this in your plan? 
+- Did you need to write code or use tools to generate random matrix of specific sizes? Did you put this in your plan? 
 
-Did you put in your plan the work needed to generate tables or graphs? Did you automate this work?  
+- Did you put in your plan the work needed to generate tables or graphs? Did you automate this work? 
 
-What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
+Automating the production of graphs became a consideration after the first week's deliverables. The graphs for the tasks were assembled by Steven after completion of tasks. Originally, this was going to be done through another program but his plan for compiling the graphs was simple, straight forward and effective for the project.
+
+- What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
 
 Include all tables, graphs and explanations needed to understand your work in the README.md file. No new or supplemental information should need to be communicated during the demo to grade your work.  
