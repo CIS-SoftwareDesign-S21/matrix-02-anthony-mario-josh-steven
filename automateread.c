@@ -6,7 +6,7 @@
 #include "mat.h"
 void dataGen1(int n, FILE *filename);
 void dataGen(int n, FILE *filename, int num_func);
-void dataGen2(int n, FILE *filename, char *matrix1, char* matrix2);
+void dataGen2(int n, FILE *filename, char *matrix1, char *matrix2);
 int grab_size(char *filename);
 
 int main(int argc, char *argv[])
@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
     //     // printf("check: %d, num_func: %d",n,num_func);
     //     dataGen(n,fp,num_func);
     // }
-    if (argc > 2){
+    if (argc > 2)
+    {
         int n = grab_size(argv[1]);
         dataGen2(n, fp, argv[1], argv[2]);
     }
@@ -85,7 +86,7 @@ void dataGen1(int n, FILE *filename)
     struct timespec end;
     struct timespec res;
     double *a, *b, *c1, *c2;
-    double times[4]={0};
+    double times[4] = {0};
     int iterations = 0;
 
     puts("hello");
@@ -127,52 +128,46 @@ void dataGen1(int n, FILE *filename)
     }
 }
 
-void dataGen2(int n, FILE *filename, char *matrix1, char* matrix2)
+void dataGen2(int n, FILE *filename, char *matrix1, char *matrix2)
 {
     struct timespec start;
     struct timespec end;
     struct timespec res;
     double *a, *b, *c1, *c2;
-    double times[4]={0};
+    double times[4] = {0};
     int iterations = 0;
 
     puts("hello");
 
-    while (iterations < 6)
-    {
-        a = read_matrix_from_file(matrix1);
-        b = read_matrix_from_file(matrix2);
-        c1 = malloc(sizeof(double) * n * n);
-        // c2 = malloc(sizeof(double) * n * n);
-        printf("Calculating for size: %d\n", n);
+    a = read_matrix_from_file(matrix1);
+    b = read_matrix_from_file(matrix2);
+    c1 = malloc(sizeof(double) * n * n);
+    // c2 = malloc(sizeof(double) * n * n);
+    printf("Calculating for size: %d\n", n);
 
-        clock_gettime(CLOCK_REALTIME, &start);
-        mmult(c1, a, n, n, b, n, n);
-        clock_gettime(CLOCK_REALTIME, &end);
-        times[0] = deltaTime(&start, &end);
-        fprintf(filename, "%d, %f,", n, times[0]);
+    clock_gettime(CLOCK_REALTIME, &start);
+    mmult(c1, a, n, n, b, n, n);
+    clock_gettime(CLOCK_REALTIME, &end);
+    times[0] = deltaTime(&start, &end);
+    fprintf(filename, "%d, %f,", n, times[0]);
 
-        clock_gettime(CLOCK_REALTIME, &start);
-        mmult_simd(c1, a, n, n, b, n, n);
-        clock_gettime(CLOCK_REALTIME, &end);
-        times[1] = deltaTime(&start, &end);
-        fprintf(filename, " %f,", times[1]);
+    clock_gettime(CLOCK_REALTIME, &start);
+    mmult_simd(c1, a, n, n, b, n, n);
+    clock_gettime(CLOCK_REALTIME, &end);
+    times[1] = deltaTime(&start, &end);
+    fprintf(filename, " %f,", times[1]);
 
-        clock_gettime(CLOCK_REALTIME, &start);
-        mmult_simdo3(c1, a, n, n, b, n, n);
-        clock_gettime(CLOCK_REALTIME, &end);
-        times[2] = deltaTime(&start, &end);
-        fprintf(filename, " %f,", times[2]);
+    clock_gettime(CLOCK_REALTIME, &start);
+    mmult_simdo3(c1, a, n, n, b, n, n);
+    clock_gettime(CLOCK_REALTIME, &end);
+    times[2] = deltaTime(&start, &end);
+    fprintf(filename, " %f,", times[2]);
 
-        clock_gettime(CLOCK_REALTIME, &start);
-        mmult_omp(c1, a, n, n, b, n, n);
-        clock_gettime(CLOCK_REALTIME, &end);
-        times[3] = deltaTime(&start, &end);
-        fprintf(filename, " %f\n", times[3]);
-
-        n += 500;
-        iterations++;
-    }
+    clock_gettime(CLOCK_REALTIME, &start);
+    mmult_omp(c1, a, n, n, b, n, n);
+    clock_gettime(CLOCK_REALTIME, &end);
+    times[3] = deltaTime(&start, &end);
+    fprintf(filename, " %f\n", times[3]);
 }
 
 int grab_size(char *filename)
