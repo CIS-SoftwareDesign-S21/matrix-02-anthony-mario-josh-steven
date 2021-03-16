@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             // b = gen_matrix(nrows, ncols);
             starttime = MPI_Wtime();
             numsent = 0;
-            MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
+            MPI_Bcast(&b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
             for (i = 0; i < min(numprocs - 1, nrows); i++)
             {
                 for (j = 0; j < ncols; j++)
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
         else
         {
             // Slave Code goes here
-            MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
+            MPI_Bcast(&b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
             if (myid <= nrows)
             {
                 while (1)
