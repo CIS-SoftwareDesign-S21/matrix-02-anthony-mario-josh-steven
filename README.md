@@ -29,6 +29,10 @@ For task five I took the template from mxv_omp_mpi and modified it in several wa
 
 Graph is created using a jupyter notebook and matplotlib. I will look into setting up a virtual environment using poetry. One of the hurdles I have to overcome is runing mpi within my automate functions since it requires additional parameters. 
 
+### Read in matrices
+
+Reading in matrices for tasks 1-4 was fairly standard and straight forward solution however I was having issues with incorporating reading MPI into my automate function. 
+
 ## Distributed parallel computing
 Explain the architecture of your solution.
 

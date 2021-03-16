@@ -202,3 +202,29 @@ double deltaTime(struct timespec *start, struct timespec *end)
     double delta = (end->tv_sec - start->tv_sec) + (end->tv_nsec - start->tv_nsec) / 1e9;
     return delta;
 }
+
+int grab_size(char *filename)
+{
+    FILE *fp = fopen(filename, "r");
+    if (fp == NULL)
+    {
+        fprintf(stderr, "Unable to open file at path '%s'\n", filename);
+        exit(EXIT_FAILURE);
+    }
+
+    size_t buflen = 255;
+    char buf[buflen];
+    int n, m;
+
+    if (!fgets(buf, buflen, fp))
+    {
+        fprintf(stderr, "Unable to read file at path '%s'\n", filename);
+        exit(EXIT_FAILURE);
+    }
+    else if (sscanf(buf, "%d %d", &n, &m) != 2)
+    {
+        fprintf(stderr, "Unable to parse first line, expect '%%d %%d'.\n");
+        exit(EXIT_FAILURE);
+    }
+    return n;
+}
