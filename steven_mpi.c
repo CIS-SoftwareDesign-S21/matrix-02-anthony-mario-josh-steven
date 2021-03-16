@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
         // b = (double*)malloc(sizeof(double) * ncols);
         c = (double *)malloc(sizeof(double) * ntotal);
         buffer = (double *)malloc(sizeof(double) * ncols);
+        ans = (double *)malloc(sizeof(double) * ncols);
         master = 0;
         if (myid == master)
         {
@@ -105,8 +106,6 @@ int main(int argc, char *argv[])
                         break;
                     }
                     row = status.MPI_TAG;
-                    ans = (double *)malloc(sizeof(double) * ncols);
-
                     // #pragma omp parallel
                     // #pragma omp shared(ans) for reduction(+:ans)
                     for (j = 0; j < ncols; j++)
