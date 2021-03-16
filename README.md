@@ -68,7 +68,9 @@ I did consider that the code had flaws which led me to questioning the template 
 
 - Did you need to write code or use tools to generate random matrix of specific sizes? Did you put this in your plan? 
 
-- Did you put in your plan the work needed to generate tables or graphs? Did you automate this work?  
+- Did you put in your plan the work needed to generate tables or graphs? Did you automate this work? 
+
+Automating the production of graphs became a consideration after the first week's deliverables. The graphs for the tasks were assembled by Steven after completion of tasks. Originally, this was going to be done through another program but his plan for compiling the graphs was simple, straight forward and effective for the project.
 
 - What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
 
