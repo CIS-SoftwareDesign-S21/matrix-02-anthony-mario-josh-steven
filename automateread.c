@@ -7,6 +7,7 @@
 void dataGen1(int n, FILE *filename);
 void dataGen(int n, FILE *filename, int num_func);
 void dataGen2(int n, FILE *filename, char *matrix1, char* matrix2);
+int grab_size(char *filename);
 
 int main(int argc, char *argv[])
 {
@@ -172,4 +173,30 @@ void dataGen2(int n, FILE *filename, char *matrix1, char* matrix2)
         n += 500;
         iterations++;
     }
+}
+
+int grab_size(char *filename)
+{
+    FILE *fp = fopen(filename, "r");
+    if (fp == NULL)
+    {
+        fprintf(stderr, "Unable to open file at path '%s'\n", filename);
+        exit(EXIT_FAILURE);
+    }
+
+    size_t buflen = 255;
+    char buf[buflen];
+    int n, m;
+
+    if (!fgets(buf, buflen, fp))
+    {
+        fprintf(stderr, "Unable to read file at path '%s'\n", filename);
+        exit(EXIT_FAILURE);
+    }
+    else if (sscanf(buf, "%d %d", &n, &m) != 2)
+    {
+        fprintf(stderr, "Unable to parse first line, expect '%%d %%d'.\n");
+        exit(EXIT_FAILURE);
+    }
+    return n;
 }
