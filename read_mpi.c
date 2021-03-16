@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
     if (argc > 1)
     {
+        aa = read_matrix_from_file(argv[1]);
+        b = read_matrix_from_file(argv[2]);
         nrows = grab_size(argv[1]);
         ncols = nrows;
         ntotal = nrows * ncols;
@@ -51,8 +53,6 @@ int main(int argc, char *argv[])
         master = 0;
         if (myid == master)
         {
-            aa = read_matrix_from_file(argv[1]);
-            b = read_matrix_from_file(argv[2]);
             // print_matrix(b,nrows,ncols);
             // return 0;
             // Master Code goes here
