@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
     if (argc > 1)
     {
-        nrows = 5;
+        nrows = grab_size(argv[1]);
         ncols = nrows;
         ntotal = nrows * ncols;
         // printf("The number of rows is: %d, cols: %d, total: %d\n", nrows, ncols, ntotal);
