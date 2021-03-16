@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
         nrows = grab_size(argv[1]);
         ncols = nrows;
         ntotal = nrows * ncols;
+        printf("The number of rows is: %d, cols: %d, total: %d\n", nrows, ncols, ntotal);
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
         // b = (double*)malloc(sizeof(double) * ntotal);
         // c = (double *)malloc(sizeof(double) * ntotal);
