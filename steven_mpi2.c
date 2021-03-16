@@ -38,7 +38,7 @@ int steven_mpi2(double *c,
     {
         ncols = aRows;
         ntotal = aRows * ncols;
-        // aa = (double*)malloc(sizeof(double) * nrows * ncols);
+        // aa = (double*)malloc(sizeof(double) * aRows * ncols);
         // b = (double*)malloc(sizeof(double) * ntotal);
         // c = (double *)malloc(sizeof(double) * ntotal);
         buffer = (double *)malloc(sizeof(double) * ncols);
@@ -47,12 +47,12 @@ int steven_mpi2(double *c,
         if (myid == master)
         {
             // Master Code goes here
-            // aa = gen_matrix(nrows, ncols);
-            // b = gen_matrix(nrows, ncols);
+            // aa = gen_matrix(aRows, ncols);
+            // b = gen_matrix(aRows, ncols);
             // starttime = MPI_Wtime();
             numsent = 0;
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
-            for (i = 0; i < min(numprocs - 1, nrows); i++)
+            for (i = 0; i < min(numprocs - 1, aRows); i++)
             {
                 for (j = 0; j < ncols; j++)
                 {
@@ -61,7 +61,7 @@ int steven_mpi2(double *c,
                 MPI_Send(buffer, ncols, MPI_DOUBLE, i + 1, i + 1, MPI_COMM_WORLD);
                 numsent++;
             }
-            for (i = 0; i < nrows; i++)
+            for (i = 0; i < aRows; i++)
             {
                 MPI_Recv(ans, ncols, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG,
                          MPI_COMM_WORLD, &status);
@@ -71,7 +71,7 @@ int steven_mpi2(double *c,
                     c[(anstype-1)*ncols+l] = ans[l];
                 }
                 // c[anstype - 1] = ans;
-                if (numsent < nrows)
+                if (numsent < aRows)
                 {
                     for (j = 0; j < ncols; j++)
                     {
@@ -96,7 +96,7 @@ int steven_mpi2(double *c,
         {
             // Slave Code goes here
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
-            if (myid <= nrows)
+            if (myid <= aRows)
             {
                 while (1)
                 {

@@ -1,7 +1,6 @@
 #ifndef MAT_H
 #define MAT_H
 #include <time.h>
-#define min(x, y) ((x) < (y) ? (x) : (y))
 
 double *gen_matrix(int n, int m);
 int compare_matrices(double* a, double* b, int nRows, int nCols);
