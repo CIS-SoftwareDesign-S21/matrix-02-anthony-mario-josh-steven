@@ -26,4 +26,8 @@ int mmult_simdo3(double *c,
           double *a, int aRows, int aCols,
           double *b, int bRows, int bCols);
 
+int steven_mpi2(double *c,
+          double *a, int aRows, int aCols,
+          double *b, int bRows, int bCols, int argc, char*argv[]);
+
 #endif

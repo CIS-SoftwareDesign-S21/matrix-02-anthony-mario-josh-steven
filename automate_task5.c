@@ -6,7 +6,7 @@
 #include "mat.h"
 // #include "mpi.h"
 
-void dataGen1(int n, FILE *filename);
+void dataGen1(int n, FILE *filename, int argc, char*argv[]);
 void dataGen(int n, FILE *filename, int num_func);
 
 int main(int argc, char *argv[])
@@ -75,7 +75,7 @@ void dataGen(int n, FILE *filename, int num_func)
     }
 }
 
-void dataGen1(int n, FILE *filename)
+void dataGen1(int n, FILE *filename,int argc, char*argv[])
 {
     struct timespec start;
     struct timespec end;
@@ -119,7 +119,7 @@ void dataGen1(int n, FILE *filename)
         fprintf(filename, " %f,", times[3]);
 
         clock_gettime(CLOCK_REALTIME, &start);
-        steven_mpi2(c1, a, n, n, b, n, n);
+        steven_mpi2(c1, a, n, n, b, n, n, argc, argv);
         clock_gettime(CLOCK_REALTIME, &end);
         times[3] = deltaTime(&start, &end);
         fprintf(filename, " %f\n", times[4]);
