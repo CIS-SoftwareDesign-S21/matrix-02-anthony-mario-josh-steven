@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     //     // printf("check: %d, num_func: %d",n,num_func);
     //     dataGen(n,fp,num_func);
     // }
-    if (argc > 3){
+    if (argc > 2){
         int n = grab_size(argv[1]);
         dataGen2(n, fp, argv[1], argv[2]);
     }
