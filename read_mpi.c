@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
         {
             aa = read_matrix_from_file(argv[1]);
             b = read_matrix_from_file(argv[2]);
+            print_matrix(b);
             // Master Code goes here
             // aa = gen_matrix(nrows, ncols);
             // b = gen_matrix(nrows, ncols);
