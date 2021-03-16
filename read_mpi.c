@@ -104,6 +104,8 @@ int main(int argc, char *argv[])
         }
         else
         {
+            printf("At Slave");
+            return 0;
             // Slave Code goes here
             MPI_Bcast(b, ntotal, MPI_DOUBLE, master, MPI_COMM_WORLD);
             if (myid <= nrows)
