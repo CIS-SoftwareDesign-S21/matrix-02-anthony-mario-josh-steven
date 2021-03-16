@@ -14,9 +14,10 @@
 
 int main(int argc, char *argv[])
 {
-    int nrows, ncols;
+    int nrows, ncols, ntotal;
     double *aa, *b, *c;
-    double *buffer, ans;
+    double *buffer;
+    double *ans;
     double *times;
     double total_times;
     int run_index;
