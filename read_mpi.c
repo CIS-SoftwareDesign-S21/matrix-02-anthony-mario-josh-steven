@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
         ncols = nrows;
         ntotal = nrows * ncols;
         printf("The number of rows is: %d, cols: %d, total: %d\n", nrows, ncols, ntotal);
+        print_matrix(aa,5,5);
+        print_matrix(b,5,5);
         // aa = (double*)malloc(sizeof(double) * nrows * ncols);
         // b = (double*)malloc(sizeof(double) * ntotal);
         // c = (double *)malloc(sizeof(double) * ntotal);
