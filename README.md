@@ -36,7 +36,7 @@ Reading in matrices for tasks 1-4 was fairly standard and straight forward solut
 ## Distributed parallel computing
 Explain the architecture of your solution.
 
-Solution was executed in two stages, one main function ran all the variations of matrix multiplication except for MPI and we had another main that only ran MPI. A separate c was written for MMult, SIMD, SIMDw/O3, OMP, and MPI the reason for two SIMD was to run both versions in one driver program. Each algorithm was written in it's own c file then linked at compile time with the driver program. The driver program takes in an integer that represents the size of the row and column which is used to generate two random matrices when are then multiplied. 
+Solution was executed in two stages, one main function ran all the variations of matrix multiplication except for MPI and we had another main that only ran MPI. A separate c was written for MMult, SIMD, SIMDw/O3, OMP, and MPI the reason for two SIMD was to run both versions in one driver program. Each algorithm was written in it's own c file then linked at compile time with the driver program. The driver program takes in an integer that represents the size of the row and column which is used to generate two random matrices when are then multiplied, the times are calculated for each function then written to a txt file in CSV form. The MPI generates it own CSV file. Both methods are iterated by multiples of the entered integer, for example if 200 was entered it loops 5 times as 200,400,600,800,1000. 
 
 Explain the variations of algorithm you implemented
 
@@ -64,10 +64,7 @@ Explain the variations of algorithm you implemented
 - Implemented a version of my automate function that would read in matrices from text files
 - Completed readme on tasks and explanation of solution
 ### Josh
-- Formatting for README
-- Contributions to README writeup
-- Additional task: Matrix Multiplication in C with both OpenMP and MPI
-- Assistance on other parts of the project (project board, etc.)
+- 
 
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
@@ -99,4 +96,4 @@ Automating the production of graphs became a consideration after the first week'
 
 - What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
 
-The time allocated towards writing variations of the algorithm and testing and reporting was about equal. Many testing trials were required to ensure that each algorithm was working properly. As even small changes were made, testing was required to prove that we were on the right track. In other words, for every change we made to our various algorithms, testing and reporting was required alongside it.
+Intially it took a lot of time to understand what was happening when we were vectorizing the matrices. I had to draw out small matrices and hand calculate to follow what was happening in the code and verify that it was correct. MPI itself took half of this understanding phase as we tried to understand what each parameter was and how it was communicating between controller and worker. Testing was done on a small stage using the input matrices that were provided since they already had a solution to verify against. Once it passed these small matrices then I applied to the gen program and tested them against each other to verify that answers were equivalent. More time could have been applied to more rigorous testing but at certain sizes it just took too long to run the entire program.
