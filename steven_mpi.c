@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
                 }
                 endtime = MPI_Wtime();
                 printf("%f\n", (endtime - starttime));
-                fprintf(fp, "%d, %f\n", nrows, (endtime-starttime);
+                fprintf(fp, "%d, %f\n", nrows, (endtime-starttime));
                 // for(int t = 0; t < ntotal; t++){
                 //     printf("The %dth entry is %lf",t,c[t]);
                 // }
