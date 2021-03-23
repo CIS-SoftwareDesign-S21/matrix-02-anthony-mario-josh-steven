@@ -27,7 +27,7 @@ For task five I took the template from mxv_omp_mpi and modified it in several wa
 
 ### Graph
 
-Graph is created using a jupyter notebook and matplotlib. I will look into setting up a virtual environment using poetry. One of the hurdles I have to overcome is runing mpi within my automate functions since it requires additional parameters. 
+I used a bash script in combination with gnuplot. MMult, SIMD, SIMDw/O3, OMP wrote to one file and MPI to another file. Wrote a GNU script that pulled information from both text files and generated a line graph. The bash script executes my automated main function, the MPI function and then calls on gnuplot to output a graph (out.png).
 
 ### Read in matrices
 
@@ -36,12 +36,14 @@ Reading in matrices for tasks 1-4 was fairly standard and straight forward solut
 ## Distributed parallel computing
 Explain the architecture of your solution.
 
-Solution was executed in two stages, one main function ran all the variations of matrix multiplication except for MPI and we had another main that only ran MPI. 
+Solution was executed in two stages, one main function ran all the variations of matrix multiplication except for MPI and we had another main that only ran MPI. A separate c was written for MMult, SIMD, SIMDw/O3, OMP, and MPI the reason for two SIMD was to run both versions in one driver program. Each algorithm was written in it's own c file then linked at compile time with the driver program. The driver program takes in an integer that represents the size of the row and column which is used to generate two random matrices when are then multiplied. 
 
 Explain the variations of algorithm you implemented
 
-SIMD optimizes the original algorithm by taking advantage of locality. The computer stores the array contigously in memory and our original algorithm had us hoping around in the array which would lead to cache misses and slowing down our program. 
-
+-MMult is standard matrix multiplication where we take the rows of the first matrix and multiply them by the columns of the second. 
+-SIMD optimizes the original algorithm by taking advantage of locality. The computer stores the array contigously in memory and our original algorithm had us hoping around in the array which would lead to cache misses and slowing down our program. 
+-OpenMP is a shared memory process, we have a main thread that drivers the code and then creates slave threads where each is given a portion of the first matrix and multiply it by the second matrix.  
+-MPI is a distributed memory process, we have a controller and then in my bash script I setup four workers. It iterates through the rows of the first matrix and sends it to the workers. All workers are send the entire second matrix, it completes the row and matrix multiplication then sends the resulting row back to the controller. The results are then stored in the corresponding location in a vectorized representation of the matrix.
 
 
 ## Teamwork
@@ -62,10 +64,7 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 - Implemented a version of my automate function that would read in matrices from text files
 - Completed readme on tasks and explanation of solution
 ### Josh
-- Formatting for README
-- Contributions to README writeup
-- Additional task: Matrix Multiplication in C with both OpenMP and MPI
-- Assistance on other parts of the project (project board, etc.)
+- 
 
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
