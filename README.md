@@ -64,7 +64,10 @@ Explain the variations of algorithm you implemented
 - Implemented a version of my automate function that would read in matrices from text files
 - Completed readme on tasks and explanation of solution
 ### Josh
-- 
+- Formatting for README
+- Contributions to README writeup
+- Additional task: Matrix Multiplication in C with both OpenMP and MPI
+- Assistance on other parts of the project (project board, etc.)
 
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
