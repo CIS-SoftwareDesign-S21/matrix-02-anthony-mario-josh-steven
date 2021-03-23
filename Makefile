@@ -39,7 +39,10 @@ test_mmult:	test_mmult.c mmult.c mat.c
 	gcc -O3 test_mmult.c mmult_simd.c mat.c -lm -o test_mmult
 
 automate: automate.c
-	gcc -fopenmp -O3 mmult.o mmult_omp.o mmult_simd.o mmult_simdo3.o mmult_omp.o automatic.c mat.c -o runit
+	gcc -fopenmp -O3 mmult.o mmult_simd.o mmult_simdo3.o mmult_omp.o automate.c mat.c -lm -o runit
+
+steven_mpi: steven_mpi.c
+	mpicc -fopenmp -O3 -o steven_mpi steven_mpi.c mat.c
 
 clean:
 	rm -f *.o

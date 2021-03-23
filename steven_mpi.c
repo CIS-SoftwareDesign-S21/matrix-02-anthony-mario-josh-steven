@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     int i, j, k, numsent, sender;
     int anstype, row;
 
-    FILE *fp = fopen("data_mpi.txt", "r");
+    FILE *fp = fopen("data_mpi.txt", "w");
     if (fp == NULL)
     {
         fprintf(stderr, "Unable to open file at path 'data.txt'\n");
@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
     if (argc > 1)
     {
-        int iterations = 0;
         nrows = atoi(argv[1]);
+	int iterations = 0, og_nrows = nrows;
         while (iterations < 5)
         {
             ncols = nrows;
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
                 }
                 endtime = MPI_Wtime();
                 // printf("%f\n", (endtime - starttime));
-                printf("Calculating for %d", nrows);
+                printf("Calculating MPI for size: %d\n", nrows);
                 fprintf(fp, "%d, %f\n", nrows, (endtime-starttime));
                 // for(int t = 0; t < ntotal; t++){
                 //     printf("The %dth entry is %lf",t,c[t]);
@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
                 }
             }
             iterations++;
-            nrows += nrows;
+            nrows += og_nrows;
         }
     }
     else

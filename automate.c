@@ -10,7 +10,7 @@ void dataGen(int n, FILE *filename, int num_func);
 int main(int argc, char *argv[])
 {
 
-    FILE *fp = fopen("data.txt", "r");
+    FILE *fp = fopen("data.txt", "w");
     if (fp == NULL)
     {
         fprintf(stderr, "Unable to open file at path 'data.txt'\n");
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Usage %s <n>\n", argv[0]);
     }
     fclose(fp);
+    return 0;
 }
 
 void dataGen(int n, FILE *filename, int num_func)
@@ -80,12 +81,12 @@ void dataGen1(int n, FILE *filename)
     struct timespec res;
     double *a, *b, *c1, *c2;
     double times[4]={0};
-    int iterations = 0;
-
+    int iterations = 0, og_n = n;
     // puts("hello");
     // double line[6]={0};
 
-    while (iterations < 6)
+
+    while (iterations < 5)
     {
         a = gen_matrix(n, n);
         b = gen_matrix(n, n);
@@ -117,7 +118,7 @@ void dataGen1(int n, FILE *filename)
         times[3] = deltaTime(&start, &end);
         fprintf(filename, " %f\n", times[3]);
 
-        n += n;
+        n += og_n;
         iterations++;
     }
 }
