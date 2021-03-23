@@ -40,10 +40,10 @@ Solution was executed in two stages, one main function ran all the variations of
 
 Explain the variations of algorithm you implemented
 
--MMult is standard matrix multiplication where we take the rows of the first matrix and multiply them by the columns of the second. 
--SIMD optimizes the original algorithm by taking advantage of locality. The computer stores the array contigously in memory and our original algorithm had us hoping around in the array which would lead to cache misses and slowing down our program. 
--OpenMP is a shared memory process, we have a main thread that drivers the code and then creates slave threads where each is given a portion of the first matrix and multiply it by the second matrix.  
--MPI is a distributed memory process, we have a controller and then in my bash script I setup four workers. It iterates through the rows of the first matrix and sends it to the workers. All workers are send the entire second matrix, it completes the row and matrix multiplication then sends the resulting row back to the controller. The results are then stored in the corresponding location in a vectorized representation of the matrix.
+- MMult is standard matrix multiplication where we take the rows of the first matrix and multiply them by the columns of the second. 
+- SIMD optimizes the original algorithm by taking advantage of locality. The computer stores the array contigously in memory and our original algorithm had us hoping around in the array which would lead to cache misses and slowing down our program. 
+- OpenMP is a shared memory process, we have a main thread that drivers the code and then creates slave threads where each is given a portion of the first matrix and multiply it by the second matrix.  
+- MPI is a distributed memory process, we have a controller and then in my bash script I setup four workers. It iterates through the rows of the first matrix and sends it to the workers. All workers are send the entire second matrix, it completes the row and matrix multiplication then sends the resulting row back to the controller. The results are then stored in the corresponding location in a vectorized representation of the matrix.
 
 
 ## Teamwork
