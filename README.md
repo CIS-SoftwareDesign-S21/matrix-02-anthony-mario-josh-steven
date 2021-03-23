@@ -65,7 +65,7 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 - Formatting for README
 - Contributions to README writeup
 - Additional task: Matrix Multiplication in C with both OpenMP and MPI
-- Assistence on other parts of the project (project board, etc.)
+- Assistance on other parts of the project (project board, etc.)
 
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
