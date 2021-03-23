@@ -1,0 +1,7 @@
+#!/bin/bash
+./runit 200
+mpiexec -f ~/hosts.txt -n 4 ./steven_mpi 200
+mpiexec -f ~/hosts.txt -n 4 ./mmult_mpi_omp 200 
+gnuplot graph.gnu
+
+
