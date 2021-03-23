@@ -83,8 +83,8 @@ int main(int argc, char* argv[])
                     }
 	                row = status.MPI_TAG;
 	                ans = 0.0;
-// #pragma omp parallel
-// #pragma omp shared(ans) for reduction(+:ans)
+#pragma omp parallel
+#pragma omp shared(ans) for reduction(+:ans)
 	                for (j = 0; j < ncols; j++) {
 	                    ans += buffer[j] * b[j];
 	                }
