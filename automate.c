@@ -83,6 +83,7 @@ void dataGen1(int n, FILE *filename)
     int iterations = 0;
 
     puts("hello");
+    double line[6]={0};
 
     while (iterations < 6)
     {
