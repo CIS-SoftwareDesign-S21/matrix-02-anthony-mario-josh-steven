@@ -84,3 +84,5 @@ It was mainly using tools and some code to generate random matrix of specific si
 Automating the production of graphs became a consideration after the first week's deliverables. The graphs for the tasks were assembled by Steven after completion of tasks. Originally, this was going to be done through another program but his plan for compiling the graphs was simple, straight forward and effective for the project.
 
 - What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
+
+The time allocated towards writing variations of the algorithm and testing and reporting was about equal. Many testing trials were required to ensure that each algorithm was working properly. As even small changes were made, testing was required to prove that we were on the right track. In other words, for every change we made to our various algorithms, testing and reporting was required alongside it.
