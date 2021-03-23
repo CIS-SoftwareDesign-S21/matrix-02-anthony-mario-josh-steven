@@ -84,7 +84,7 @@ void dataGen1(int n, FILE *filename)
     struct timespec end;
     struct timespec res;
     double *a, *b, *c1, *c2;
-    double times[4]={0};
+    double times[4] = {0};
     int iterations = 0;
 
     puts("hello");

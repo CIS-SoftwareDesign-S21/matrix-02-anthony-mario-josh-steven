@@ -49,6 +49,15 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 - Utilized mmult_omp_timing.c to test runtimes of mmult and mmult_omp and analyze the differences in their speeds for various sized n x n matricies
 - Began implementation of task 5 based on given mxv_omp_mpi.c file
 - Contributed to full project life cycle questions included in this README
+### Mario 
+- Formatted README.md
+- Answered a portion of the questions on README.md
+- Working on Matrix multiplication in C on Wolfgang cluster with both OpenMP and MPI
+- Assisted in general
+### Steven
+- 
+### Josh
+- 
 
 
 Did you lock the master branch as explain in GitHW2 Lab 2 - Git? How did you proceed to review each other work?
@@ -72,10 +81,12 @@ I did consider that the code had flaws which led me to questioning the template 
 
 - Did you need to write code or use tools to generate random matrix of specific sizes? Did you put this in your plan? 
 
+It was mainly using tools and some code to generate random matrix of specific sizes as said in part of our plan and testing we would compare matrix methods first to check that our matrices were multiplying correctly whilist we worked individually to ensure that the requirements were met.
+
 - Did you put in your plan the work needed to generate tables or graphs? Did you automate this work? 
 
 Automating the production of graphs became a consideration after the first week's deliverables. The graphs for the tasks were assembled by Steven after completion of tasks. Originally, this was going to be done through another program but his plan for compiling the graphs was simple, straight forward and effective for the project.
 
 - What proportion of the tasks (and time) in your plan is about writing variations on the matrix multiplication algorithm and what proportion is about testing and reporting activities?
 
-Include all tables, graphs and explanations needed to understand your work in the README.md file. No new or supplemental information should need to be communicated during the demo to grade your work.  
+The time allocated towards writing variations of the algorithm and testing and reporting was about equal. Many testing trials were required to ensure that each algorithm was working properly. As even small changes were made, testing was required to prove that we were on the right track. In other words, for every change we made to our various algorithms, testing and reporting was required alongside it.

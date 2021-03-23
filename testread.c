@@ -13,13 +13,15 @@ int main(int argc, char *argv[])
 
     double *aa;
     double *b;
-    int nrows;
+    int nrows, ncols, ntotal;
 
     aa = read_matrix_from_file(argv[1]);
     b = read_matrix_from_file(argv[2]);
     nrows = grab_size(argv[1]);
+    ncols = nrows;
+    ntotal = nrows * ncols;
     // printf("The size of aa is: %ld and the size of aa[0] is: %ld\n", sizeof(aa), sizeof(*aa));
-    printf("The number of rows is: %d\n", nrows);
+    printf("The number of rows is: %d, cols: %d, total: %d\n", nrows, ncols, ntotal);
     return 0;
 }
 
