@@ -82,8 +82,8 @@ void dataGen1(int n, FILE *filename)
     double times[4]={0};
     int iterations = 0;
 
-    puts("hello");
-    double line[6]={0};
+    // puts("hello");
+    // double line[6]={0};
 
     while (iterations < 6)
     {
@@ -117,7 +117,7 @@ void dataGen1(int n, FILE *filename)
         times[3] = deltaTime(&start, &end);
         fprintf(filename, " %f\n", times[3]);
 
-        n += 500;
+        n += n;
         iterations++;
     }
 }

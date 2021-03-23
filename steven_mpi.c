@@ -97,7 +97,8 @@ int main(int argc, char *argv[])
                     }
                 }
                 endtime = MPI_Wtime();
-                printf("%f\n", (endtime - starttime));
+                // printf("%f\n", (endtime - starttime));
+                printf("Calculating for %d", nrows);
                 fprintf(fp, "%d, %f\n", nrows, (endtime-starttime));
                 // for(int t = 0; t < ntotal; t++){
                 //     printf("The %dth entry is %lf",t,c[t]);
@@ -136,7 +137,7 @@ int main(int argc, char *argv[])
                 }
             }
             iterations++;
-            nrows += 500;
+            nrows += nrows;
         }
     }
     else
