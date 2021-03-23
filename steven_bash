@@ -1,0 +1,6 @@
+#!/bin/bash
+./runit 500
+mpiexec -f ~/hosts.txt -n 4 ./steven_mpi 500
+gnuplot graph.gnu
+
+

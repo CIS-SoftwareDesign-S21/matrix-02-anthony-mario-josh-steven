@@ -10,7 +10,7 @@ void dataGen(int n, FILE *filename, int num_func);
 int main(int argc, char *argv[])
 {
 
-    FILE *fp = fopen("data.txt", "a");
+    FILE *fp = fopen("data.txt", "r");
     if (fp == NULL)
     {
         fprintf(stderr, "Unable to open file at path 'data.txt'\n");
@@ -83,6 +83,7 @@ void dataGen1(int n, FILE *filename)
     int iterations = 0;
 
     puts("hello");
+    double line[6]={0};
 
     while (iterations < 6)
     {
