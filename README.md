@@ -36,6 +36,8 @@ Reading in matrices for tasks 1-4 was fairly standard and straight forward solut
 ## Distributed parallel computing
 Explain the architecture of your solution.
 
+Solution was executed in two stages, one main function ran all the variations of matrix multiplication except for MPI and we had another main that only ran MPI. 
+
 Explain the variations of algorithm you implemented
 
 SIMD optimizes the original algorithm by taking advantage of locality. The computer stores the array contigously in memory and our original algorithm had us hoping around in the array which would lead to cache misses and slowing down our program. 
@@ -55,7 +57,10 @@ SIMD optimizes the original algorithm by taking advantage of locality. The compu
 - Working on Matrix multiplication in C on Wolfgang cluster with both OpenMP and MPI
 - Assisted in general
 ### Steven
-- 
+- Completed tasks 3-5
+- Created bash script to generate data from functions and creation of graph through gnuplot
+- Implemented a version of my automate function that would read in matrices from text files
+- Completed readme on tasks and explanation of solution
 ### Josh
 - 
 
