@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     int i, j, k, numsent, sender;
     int anstype, row;
 
-    FILE *fp = fopen("data_mpi.txt", "a");
+    FILE *fp = fopen("data_mpi.txt", "r");
     if (fp == NULL)
     {
         fprintf(stderr, "Unable to open file at path 'data.txt'\n");
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     {
         int iterations = 0;
         nrows = atoi(argv[1]);
-        while (iterations < 6)
+        while (iterations < 5)
         {
             ncols = nrows;
             ntotal = nrows * ncols;
